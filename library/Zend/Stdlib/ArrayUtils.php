@@ -215,7 +215,9 @@ abstract class ArrayUtils
             return iterator_to_array($iterator);
         }
 
-        if (method_exists($iterator, 'toArray')) {
+        // $iterator is an array (e.g. for defaultCurrency) ,or ArrayObject,  or empty.
+        if (is_object($iterator) &&
+            method_exists($iterator, 'toArray')) {
             return $iterator->toArray();
         }
 

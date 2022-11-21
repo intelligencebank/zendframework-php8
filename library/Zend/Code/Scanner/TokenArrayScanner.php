@@ -425,7 +425,8 @@ class TokenArrayScanner implements ScannerInterface
                     goto SCANNER_NAMESPACE_CONTINUE;
                 }
 
-                if ($tokenType === T_NS_SEPARATOR || $tokenType === T_STRING) {
+                if ($tokenType === T_NAME_QUALIFIED ||
+                    $tokenType === T_NS_SEPARATOR || $tokenType === T_STRING) {
                     $infos[$infoIndex]['namespace'] .= $tokenContent;
                 }
 
